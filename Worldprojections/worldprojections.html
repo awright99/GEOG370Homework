@@ -9,21 +9,71 @@
     <h1>In this project I learned how to display images in different projections</h1>
     
     <h2 style="color:red">Describe in your own words how you displayed the map in different projections using QGIS</h2>
-    <p>You can write a paragraph here</p>
+    <p>In working with this map, I first tested out QGIS and the Indicatrix Mapper by inputting the map and projections of the two given examples. 
+        This allowed me to test for myself the tools in use and to compare them with the examples to ensure I was using the tools properly.
+        I then utilized a fresh map with each successive projection, applying the Indicatrix Mapper each time, and adjusting my colors to remain as consistent as possible.
+        Ultimately, once I understood the process, I was able to create new maps with the proper elements within minutes.</p>
     
     <h2>WGS84 Projection</h2>
-    <h3>Some observations</h3>
+    <h3>This map is fairly accurate the closer in distance and the closer to the equator one looks. 
+        Proceeding to the poles, horizontal stretching exaggerates the size of areas such as Greenland, Russia, or Antarctica far beyond reality. 
+        Shapes and sizes are therefore more accurate in say central Africa or South America than they are in Northern Europe.</h3>
     <a href=".//maps/4326.png">
     <img src=".//maps/4326.png" alt="WGS84" width='500px'>
     </a>
     <h2>Aitoff Projection</h2>
-    <h3>Some observations</h3>
+    <h3>This map strives to maintain accuracy in the size of features relative to other areas of the planet, but at the cost of vertical distortion towards the poles.
+        Features like Greenland or Antarctica are not as overly exaggerated as in other projections, nonetheless they suffer from this vertical stretching.
+        Areas around the equator also begin to distort vertically closer to the international date line, though not to the same degree as the poles.</h3>
     <a href=".//maps/54043.png">
     <img src=".//maps/54043.png" alt="Aitoff" width='500px'>
     </a>
-    <h2 style="color:red">Now, you should <u>add the following projections on your own:</u></h2>
-    <h3>EPSG: 3857, 53018, 54034, 54027, 102016, and two additional projections that you choose.</h3>
-    <p></p>
+    <h2>Pseudo Mercator Projection</h2>
+    <h3>The Pseudo Mercator remains accurate at the equator, with shapes and sizes stretching horizontally as one goes north or south.
+        Once again, polar features are made to appear much larger than they are in real life, though the distance between them appears consistent.</h3>
+    <a href=".//maps/WGS84 Pseudo-Mercator.png">
+    <img src=".//maps/WGS84 Pseudo-Mercator.png" alt="Pseudo Mercator" width='500px'>
+    </a>
+    <h2>Winkel Sphere Projection</h2>
+    <h3>The Winkel Sphere Projection strives to minimize all factors of distortion, and largely succeeds in projecting accurate shapes, size, and distance.
+        As with other projections, the greatest area of distortion lies in stretching at the poles, which though not as extreme as in other cases, is nonetheless extant.</h3>
+    <a href=".//maps/Sphere_Winkel_I.png">
+    <img src=".//maps/Sphere_Winkel_I.png" alt="Winkel Sphere" width='500px'>
+    </a>
+    <h2>Cylindrical Equal Area Projection</h2>
+    <h3>This map seeks to keep the relative size and area of features consistent relative to other parts of the world.
+        Consequently, horizontal stretching or squishing becomes extreme at the poles in order to compensate for this equalized area.
+        Other features remain fairly accurate in shape, until the poles are reached.</h3>
+    <a href=".//maps/World_Cylindrical_Equal_Area.png">
+    <img src=".//maps/World_Cylindrical_Equal_Area.png" alt="Cylindrical Equal Area" width='500px'>
+    </a>
+    <h2>Equidistant Conic Projection</h2>
+    <h3>This projection takes a polar approach, with areas closest to the North Pole remaining accurate relative to each other in shape and size.
+        Radiating out from this pole however, vertical and horizontal stretching increases until some features, such as Australia, are made to appear many times larger.
+        Lastly, the stretching becomes so extreme at the south pole that this projection sees Antarctica turned into a ring-like feature that encapsulates the rest of the world.</h3>
+    <a href=".//maps/World_Equidistant_Conic.png">
+    <img src=".//maps/World_Equidistant_Conic.png" alt="Equidistant Conic" width='500px'>
+    </a>
+    <h2>North Pole Azimuthal Equidistant Projection</h2>
+    <h3>This projection also establishes the north pole as its center, with the rest of the planet stretching out from there.
+        Compared to the Conic Projection, its horizontal stretching appears slightly more exaggerated as one approaches the south pole.
+        Antarctica once again becomes a world-encompassing ring. </h3>
+    <a href=".//maps/North_Pole_Azimuthal_Equidistant.png">
+    <img src=".//maps/North_Pole_Azimuthal_Equidistant.png" alt="North Pole Azimuthal Equidistant" width='500px'>
+    </a>
+    <h2>Equidistant Cylindrical Projection</h2>
+    <h3>This projection strives to maintain an accurate depiction of distance at the expense of shape.
+        Features at the equator become vertically strecthed, consistent along latitude, while polar features, though exaggerated horizontally to appear much larger than normal, are accurate relative to each other.</h3>
+    <a href=".//maps/World_Equidistant_Cylindrical.png">
+    <img src=".//maps/World_Equidistant_Cylindrical.png" alt="Equidistant Cylindrical" width='500px'>
+    </a>
+    <h2>Robinson Projection</h2>
+    <h3>Similarly to the Winkel Sphere projection, the Robinson seeks to minimize distortion in all measurements.
+        It succeeds fairly well in this task, but nonetheless distortion exists as one approaches either pole.
+        Distances between points remain consistent, but shape becomes stretched horizontally, once again making Greenland, Russia, or Antarctica significantly larger than many of the world's regions.</h3>
+    <a href=".//maps/World_Robinson.png">
+    <img src=".//maps/World_Robinson.png" alt="Robinson" width='500px'>
+    </a>
     <h2>Data used for this project</h2>
     <a href="https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip"> Download Natrual Earth 1:10m Cultural Vector </a>
 </body>
