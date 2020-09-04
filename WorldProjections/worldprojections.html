@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projections</title>
+</head>
+<body>
+    <h1>In this project I learned how to display images in different projections</h1>
+    
+    <h2 style="color:red">I displayed the images in QGIS using different projections that varied based on the different factors that they distorted, as well as the features that each one emphasized.</p>
+    
+    <h2>WGS84 Projection</h2>
+    <h3>This projection emphasizes true directions and distances, in that any line drawn will indicate a true compass direction. However, at the same time it greatly distorts features at the poles by stretching or enlarging them.</h3>
+    <a href=".//maps/4326.png">
+    <img src=".//maps/4326.png" alt="WGS84" width='500px'>
+    </a>
+    <h2>Aitoff Projection</h2>
+    <h3>The Aitoff Projection seeks to limit distortion globally, and largely succeeds, except for some vertical stretching towards the poles and international date line at the equator.</h3>
+    <a href=".//maps/54043.png">
+    <img src=".//maps/54043.png" alt="Aitoff" width='500px'>
+    </a>
+    <h2>Pseudo Mercator</h2>
+    <h3>The Pseudo Mercator also strives to maintain true compass points and distances, but still suffers from polar distortion on both the horizontal and vertical planes. Features like Greenland and northern Russia are much larger relative to say Africa or Central America.</h3>
+    <a href="./maps/3857.png">
+    <img src="./maps/3857.png" alt="3857" width='500px'>
+    </a>
+    <h2>Winkel Sphere</h2>
+    <h3>The Winkel Sphere is most accurate towards the equator and prime meridian, with small levels of distortion at the international date line, and larger levels towards the poles. It generally maintains the shape of features, but with some stretching.</h3>
+    <a href="./maps/53018.png">
+    <img src="./maps/53018.png" alt="53018" width='500px'>
+    </a>
+    <h2>Cylindrical Equal Area</h2>
+    <h3>This projection maintains equal area between world features, while having extreme horizontal stretching to the point that polar regions are almost squished onto the map.</h3>
+    <a href="./maps/54034.png">
+    <img src="./maps/54034.png" alt="54034" width='500px'>
+    </a>
+    <h2>Equidistant Conic</h2>
+    <h3>This projection ensures proper distance measurements and largely maintains features closer to the north pole with little to no distortion. The largest area of issue is the south pole, with Antarctica stretched into a world-encompassing ring.</h3>
+    <a href="./maps/54027.png">
+    <img src="./maps/54027.png" alt="54027" width='500px'>
+    </a>
+    <h2>North Pole Azimuthal Equidistant</h2>
+    <h3>Similarly to the conic projection, this one seeks to protect proper distance portrayal and largely succeeds in portraying the north pole area accurately. Once again, distortion increases towards the south pole, and Antarctica is once more a global ring.</h3>
+    <a href="./maps/102016.png">
+    <img src="./maps/102016.png" alt="102016" width='500px'>
+    </a>
+    <h2>Equidistant Cylindrical</h2>
+    <h3>This projection, contrary to most others here, minimzes distortion at the poles while vertically stretching towards the equator. It also seeks to maintain accurate portrayals of distance.</h3>
+    <a href="./maps/54002.png">
+    <img src="./maps/54002.png" alt="54002" width='500px'>
+    </a>
+    <h2>Robinson</h2>
+    <h3>The Robinson projection tries to minimize multiple factors of distortion, and though areas at the poles appear larger than normal, it is not to the extreme as given in a mercator projection or elsewhere.</h3>
+    <a href="./maps/54030.png">
+    <img src="./maps/54030.png" alt="54030" width='500px'>
+    </a>
+    <p></p>
+    <h2>Data used for this project</h2>
+    <a href="https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip"> Download Natrual Earth 1:10m Cultural Vector </a>
+</body>
+</html>
