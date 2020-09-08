@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Leaflet Map</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-
+    xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEp
+    DL9wQ=="
+        crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-
+    gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0C
+    Pthew=="
+        crossorigin=""></script>
+
+    <script src = "./leafletdata/deandome.geojson"></script>
+    <script src = "./leafletdata/kenanstadium.geojson"></script>
+    <script src = "./leafletdata/davislibrary.geojson"></script>
+
+</head>
+<body>
+
+    <div id="mapid"></div>
+    <style>
+        #mapid{ width: 900px; height: 500px;}   
+    </style>
+
+    <script>
+        var map = L.map('mapid').setView([35.91, -79.05], 17);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png', {}).addTo(map)
+        L.geoJSON(kenan).addTo(map)
+        var kenanIcon = L.icon({
+            iconUrl: 'https://toppng.com/uploads/preview/football-clipart-clear-background-football-cartoon-transparent-background-11562991894zygxs87py3.png',
+            iconSize: [50,50],
+            popupAnchor: [0,0]  
+        });
+
+        var kenanPopup = "Kenan Memorial Stadium, opened 1927, seats 50,000<br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kenan_Memorial_Stadium_Panorama.jpg/1920px-Kenan_Memorial_Stadium_Panorama.jpg'width='100px'/>"
+
+        L.geoJSON(kenan, {
+        pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, {icon: kenanIcon});}})
+        .bindPopup(kenanPopup)
+        .addTo(map);
+
+        L.geoJSON(davis).addTo(map)
+        var davisIcon = L.icon({
+            iconUrl: 'https://www.clipartmax.com/png/middle/51-517138_best-closed-book-clipart-brown-book-clip-art.png',
+            iconSize: [50,50],
+            popupAnchor: [0,0]
+        });
+
+        var davisPopup = "Walter Royal Davis Library, opened 1984<br/><img src='https://upload.wikimedia.org/wikipedia/commons/d/d0/Walter_Royal_Davis_Library.jpg'width='100px'/>"
+
+        L.geoJSON(davis, {
+        pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, {icon: davisIcon});}})
+        .bindPopup(davisPopup)
+        .addTo(map);
+
+        L.geoJSON(dome).addTo(map)
+        var domeIcon = L.icon({
+            iconUrl: 'https://www.clipartmax.com/png/middle/180-1805321_basketball-clip-art-free-basketball-clipart-to-use-basketball-clip-art.png',
+            iconSize: [50,50],
+            popupAnchor: [0,0]
+        });
+
+        var domePopup = "Dean E. Smith Center, opened 1986, seats 21,750<br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/DeanDome_behind.jpg/800px-DeanDome_behind.jpg'width='100px'/>"
+        
+        L.geoJSON(dome, {
+        pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, {icon: domeIcon});}})
+        .bindPopup(domePopup)
+        .addTo(map);
+
+     </script>
+
+</body>
+</html>
