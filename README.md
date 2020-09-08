@@ -1,1 +1,1 @@
-# GEOG370Homework2
+# GEOG370Homework
