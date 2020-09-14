@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaflet Preview</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""/>
+
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+      integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+      crossorigin=""></script>
+
+  <script src = "./newleafletdata/thepentagon.geojson"></script>
+  <script src = "./newleafletdata/arlingtoncemetery.geojson"></script>
+  <script src = "./newleafletdata/columbiaislandmarina.geojson"></script>
+
+  <style type="text/css">
+    body {
+       margin: 0;
+       padding: 0;
+    }
+    html, body, #map{
+       width: 100%;
+       height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script>
+      var map = L.map('map').setView([38.877901335723124, -77.05869412599287], 14.0);
+
+      var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	      maxZoom: 19,
+	      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map);
+
+      var oldPhoto = L.tileLayer('./HomeworkOldTiles/{z}/{x}/{y}.png', {
+        minZoom: 12,
+        maxZoom: 16,
+        tms: false,
+        attribution: 'USGS'})
+
+      var newPhoto = L.tileLayer('./HomeworkNewTiles/{z}/{x}/{y}.png', {
+        minZoom: 12,
+        maxZoom: 16,
+        tms: false,
+        attribution: 'USGS'})
+
+      // L.geoJSON(pentagon).addTo(map)
+      var pentagonIcon = L.icon({
+          iconUrl: 'https://www.pinclipart.com/picdir/middle/10-103992_at-clker-com-online-pentagon-shape-with-color.png',
+          iconSize: [50,50],
+          popupAnchor: [0,0]  
+      });
+
+      var pentagonPopup = "The Pentagon, opened 1943, is the headquarters for the United States Department of Defense. Between 1968 and latest imagery in 2002, the clearest change is the significant cleanup and reconstruction efforts in the aftermath of the 9/11 attacks.<br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/The_Pentagon%2C_cropped_square.png/240px-The_Pentagon%2C_cropped_square.png'width='100px'/>"
+
+      var Pentagon = L.geoJSON(pentagon, {
+      pointToLayer: function (feature, latlng) {
+      return L.marker(latlng, {icon: pentagonIcon});}})
+      .bindPopup(pentagonPopup)
+      .addTo(map);
+
+      // L.geoJSON(cemetery).addTo(map)
+      var cemeteryIcon = L.icon({
+          iconUrl: 'https://www.clipartmax.com/png/middle/10-104351_drawn-american-flag-veterans-day-american-flag-clip-art.png',
+          iconSize: [50,50],
+          popupAnchor: [0,0]  
+      });
+
+      var cemeteryPopup = "The Arlington National Cemetery was established in 1864 as a site for the burial of America's war dead, and between 1968 and 2002, the most notable change is the expanded area identifiably taken up with gravesites.<br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Arlington_National_Cemetery_2012.jpg/220px-Arlington_National_Cemetery_2012.jpg'width='100px'/>"
+
+      var Cemetery = L.geoJSON(cemetery, {
+      pointToLayer: function (feature, latlng) {
+      return L.marker(latlng, {icon: cemeteryIcon});}})
+      .bindPopup(cemeteryPopup)
+      .addTo(map)
+
+      // L.geoJSON(marina).addTo(map)
+      var marinaIcon = L.icon({
+          iconUrl: 'https://i7.pngguru.com/preview/246/746/355/motor-boats-yacht-car-clip-art-sail.jpg',
+          iconSize: [50,50],
+          popupAnchor: [0,0]  
+      });
+
+      var marinaPopup = "The Columbia Island Marina is located on Columbia Island on the Potomac River, open to the Pentagon Lagoon Yacht Basin. Between 1968 and 2002, the most noticable change is an overall narrowing of the channel between the island and mainland, and the elimination of four small northern piers.<br/><img src='https://boatingindc.com/wp-content/uploads/sites/18/2016/12/CIM2.jpg'width='100px'/>"
+
+      var Marina = L.geoJSON(marina, {
+      pointToLayer: function (feature, latlng) {
+      return L.marker(latlng, {icon: marinaIcon});}})
+      .bindPopup(marinaPopup)
+      .addTo(map)
+
+      var Tiles = {
+        "Open Street Map": OSM,
+        "1968 Arlington/Pentagon": oldPhoto,
+        "2002 Arlington/Pentagon": newPhoto
+      }
+
+      var geoJSONs = {
+        "Pentagon": Pentagon,
+        "Arlington National Cemetery": Cemetery,
+        "Columbia Island Marina": Marina
+      }
+      
+      L.control.layers(Tiles, geoJSONs).addTo(map);
+
+
+  </script>
+</body>
+</html>
