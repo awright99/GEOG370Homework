@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 10</title>
+</head>
+<body>
+<h1>Homework 10: Geoprocessing Analysis of Virginia Population and US Military Installations </h1>
+<h2>Stephen Wright</h2>
+<h3>I came into this assignment looking to answer the question of whether Virginian counties containing military installations
+    see higher population than counties without. To do so, I first made a choropleth aligning Virginia's counties and independent cities
+    with 2019 population estimates produced by the University of Virginia, providing more recent data than the 2010 Census.
+    I then acquired shapefile data from the US Census Bureau showing all US military installations within the United States, which I then trimmed down
+    to only include those within Virginia. This, set against the choropleth, is represented in the first map below.
+
+    From there, I first used a buffer around all the military installations, set to five miles, considered a short commuting distance
+    by many Americans' standards. Using this buffer, I then used an intersect to indicate just what counties lie within this commute distance, and therefore
+    which counties potential workers or servicemembers at these installations may live in. Set against the choropleth, it can be seen that generally, the presence of
+    military installations does correlate to overall higher populations in a county, and aligning with previously observed biases in population
+    towards the north and eastern parts of the state.
+</h3>
+<!-- Your map goes here -->
+<a href="Homework101.png">
+    <img src="./Homework101.png" alt="Homework10.1" width='700px'>
+    </a>
+
+ <a href="Homework102.png">
+    <img src="./Homework102.png" alt="Homeowork10.2" width='700px'>
+    </a>
+
+<!-- Link to your shapefile in Github and you CSV -->
+<h2>Data used for this project</h2>
+    <a href="https://demographics.coopercenter.org/virginia-population-estimates/"> Link to Original Population Data <Datag></Datag> </a>
+    <p></p>
+    <a href="https://catalog.data.gov/dataset/tiger-line-shapefile-2017-nation-u-s-military-installation-national-shapefile"> Link to Installation Data <Datag></Datag> </a>
+    <p></p>
+    <a href="./VAPOP2019.csv"> Cleaned CSV Dataset </a>
+    <p></p>
+    <a href="./va_3968.gpkg"> Link to ShapeFile (.gpkg) </a>
+
+</body>
+</html>
